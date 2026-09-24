@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>عزة - حب عمري</title>
+<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;800&family=Great+Vibes&display=swap" rel="stylesheet">
+<style>
+  *{margin:0;padding:0;box-sizing:border-box}
+  body{height:100vh;overflow:hidden;font-family:'Cairo',sans-serif;display:flex;justify-content:center;align-items:center;background:#000}
+  .bg{position:fixed;inset:0;background:url('dd.jpeg') center/cover no-repeat;filter:blur(22px) brightness(0.65) saturate(1.3);transform:scale(1.1);z-index:0}
+  .overlay{position:fixed;inset:0;background:linear-gradient(180deg,rgba(168,85,247,0.25),rgba(236,72,153,0.45));z-index:1}
+  #hearts{position:fixed;inset:0;pointer-events:none;z-index:2}
+  #hearts span{position:absolute;top:-20px;animation:fall 7s linear infinite;filter:blur(0.2px)}
+  @keyframes fall{to{transform:translateY(110vh)}}
+
+  .card{position:relative;z-index:3;width:90%;max-width:360px;height:90vh;max-height:720px;background:rgba(255,255,255,0.15);backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);border:1px solid rgba(255,255,255,0.25);border-radius:35px;overflow:hidden;box-shadow:0 25px 60px rgba(0,0,0,0.35);display:flex;flex-direction:column}
+
+  .img-wrap{padding:16px 16px 0 16px;flex-shrink:0}
+  .img-inner{width:100%;height:380px;border-radius:26px;overflow:hidden;position:relative}
+  .img-inner img{width:100%;height:100%;object-fit:cover;object-position:top center}
+  .img-inner::after{content:'';position:absolute;bottom:0;left:0;width:100%;height:55%;background:linear-gradient(to top,rgba(0,0,0,0.65),transparent)}
+  .name-on-img{position:absolute;bottom:14px;right:16px;left:16px;display:flex;justify-content:space-between;align-items:end;z-index:2}
+  .name-on-img h2{font-family:'Great Vibes',cursive;font-size:36px;color:white;text-shadow:0 2px 12px rgba(0,0,0,0.8);font-weight:400}
+  .music-icon{width:40px;height:40px;background:rgba(255,255,255,0.92);border-radius:50%;display:flex;justify-content:center;align-items:center;font-size:16px;box-shadow:0 4px 12px rgba(0,0,0,0.25);cursor:pointer}
+  .music-icon.playing{animation:spin 2s linear infinite}
+  @keyframes spin{to{transform:rotate(360deg)}}
+
+  .text{padding:18px 20px 22px;text-align:center;color:white;overflow-y:auto;flex:1}
+  .text::-webkit-scrollbar{width:0}
+  .text h3{font-size:13px;font-weight:600;opacity:0.9;margin-bottom:14px;letter-spacing:0.5px}
+  .text p{font-size:14.5px;line-height:2.1;font-weight:600;opacity:0.95;white-space:pre-line}
+  .text p b{font-weight:800;color:#ffd4f0}
+  .footer{margin-top:16px;font-size:10px;opacity:0.7;letter-spacing:1px}
+</style>
+</head>
+<body>
+
+<div class="bg"></div>
+<div class="overlay"></div>
+<div id="hearts"></div>
+
+<div class="card" id="card">
+  <div class="img-wrap">
+    <div class="img-inner">
+      <img src="dd.jpeg" alt="Azza">
+      <div class="name-on-img">
+        <h2>Azza</h2>
+        <div class="music-icon" id="playBtn">🎵</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="text">
+    <h3>حبيبتي و حب عمري ❤️</h3>
+    
+    <p>عزة يا أجمل حاجة حصلتلي
+يا قلبي وروحي ودنيتي
+من يوم ما شوفتك وانا
+نسيت كل اللي فات
+
+معاكي بحس اني ملك
+الدنيا كلها بين ايديا
+ضحكتك بتنور قلبي
+وحبك هو اللي محليا
+
+<b>بحبك فوق ما تتخيلي
+وعمري كله ليكي إنتي
+خليكي جنبي على طول
+يا أغلى من روحي إنتي</b></p>
+
+    <div class="footer">KEMO ❤️ AZZA FOREVER</div>
+  </div>
+</div>
+
+<audio id="mySong" loop preload="auto">
+  <source src="sonng.mp3" type="audio/mpeg">
+</audio>
+
+<script>
+  const song=document.getElementById('mySong');
+  const btn=document.getElementById('playBtn');
+  const card=document.getElementById('card');
+  let isPlaying=false;
+  function togglePlay(){
+    if(!isPlaying){song.volume=0.9;song.play().catch(()=>{});btn.innerHTML='⏸️';btn.classList.add('playing');isPlaying=true}
+    else{song.pause();btn.innerHTML='🎵';btn.classList.remove('playing');isPlaying=false}
+  }
+  btn.addEventListener('click',e=>{e.stopPropagation();togglePlay()});
+  card.addEventListener('click',()=>{if(!isPlaying)togglePlay()});
+  const c=document.getElementById('hearts');
+  for(let i=0;i<18;i++){let sp=document.createElement('span');sp.innerHTML='❤️';sp.style.left=Math.random()*100+'vw';sp.style.animationDelay=Math.random()*6+'s';sp.style.fontSize=(10+Math.random()*14)+'px';sp.style.opacity=0.7; c.appendChild(sp);}
+</script>
+
+</body>
+</html>
