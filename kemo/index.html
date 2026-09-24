@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>دنيا - حبيبتي وصحبتي</title>
+<link href="https://fonts.googleapis.com/css2?family=Aref+Ruqaa:wght@700&family=Cairo:wght@600;700&display=swap" rel="stylesheet">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{min-height:100vh;display:flex;justify-content:center;align-items:flex-start;padding:25px 15px 20px;background:radial-gradient(ellipse at top,#a18cd1 0%,#fbc2eb 50%,#8e44ad 100%);font-family:'Cairo',sans-serif;overflow-y:auto}
+.card{z-index:2;background:rgba(255,255,255,.92);backdrop-filter:blur(18px);padding:30px 30px 20px;border-radius:35px;text-align:center;box-shadow:0 20px 60px rgba(142,68,173,.4),0 0 0 8px rgba(255,255,255,.3);width:460px;max-width:95%;margin-top:10px}
+.big-heart{font-size:52px;animation:pulse 1s infinite;display:block;margin-bottom:5px}
+@keyframes pulse{0%{transform:scale(1)}50%{transform:scale(1.2)}100%{transform:scale(1)}}
+h1{font-family:'Aref Ruqaa';font-size:48px;background:linear-gradient(90deg,#6a1b9a,#ff2e86);-webkit-background-clip:text;-webkit-text-fill-color:transparent;line-height:1.1}
+.name{font-size:26px;color:#6a1b9a;margin-top:4px;font-weight:700}
+.divider{width:90px;height:4px;background:linear-gradient(90deg,#6a1b9a,#ffb6d9);margin:12px auto;border-radius:50px}
+.msg{font-size:17px;color:#4a235a;line-height:1.9;font-weight:600}
+.msg .pink{color:#e91e63;display:block;margin-top:6px;font-size:17px}
+.msg .big-love{font-family:'Aref Ruqaa';font-size:22px;color:#6a1b9a;margin-top:12px;display:block;line-height:1.5}
+.from{margin-top:15px;font-size:12px;color:#8e7a85}
+audio{width:100%;margin-top:15px;height:35px;border-radius:20px}
+</style>
+</head>
+<body>
+<div id="hearts" style="position:fixed;inset:0;pointer-events:none"></div>
+<div class="card">
+<span class="big-heart">💜</span>
+<h1>دُنيا</h1>
+<div class="name">حبيبتي وصاحبتي الجدعة ♡</div>
+<div class="divider"></div>
+<div class="msg">
+<span>إنتي اللي لما احتاج حضن بلاقيكي حبيبتي</span>
+<span>ولما احتاج سند بلاقيكي أجدع صحبة</span>
+<span class="pink">✧ معاكي بحس اني مش لوحدي أبدا ✧</span>
+<span class="pink">✧ بتحبيني وبتخافي عليا زي اختي ✧</span>
+<span class="big-love">إنتي الحب والصحبة الحلوة<br>اللي اتجمعوا في قلب واحد<br>بحبك يا دنيتي كلها</span>
+</div>
+<div class="from">كِيمُوو ♾️ دُنيا - حبيبتي وصاحبتي للأبد</div>
+<audio id="song" loop playsinline autoplay preload="auto">
+<source src="https://cdn.jsdelivr.net/gh/kabdelaziz549-hub/iti-projects-test@main/love/kk.mpeg" type="audio/mpeg">
+</audio>
+</div>
+<script>
+// قلوب بتطير
+const c=document.getElementById('hearts');
+for(let i=0;i<20;i++){let s=document.createElement('span');s.innerHTML=['💜','💖','🌸','✨','💗'][Math.floor(Math.random()*5)];s.style.left=Math.random()*100+'vw';s.style.animationDuration=(3+Math.random()*5)+'s';s.style.animationDelay=Math.random()*4+'s';s.style.top='-5vh';s.style.fontSize=(16+Math.random()*14)+'px';s.style.position='absolute';s.style.animationName='fall';s.style.animationTimingFunction='linear';s.style.animationIterationCount='infinite';c.appendChild(s);}
+const style=document.createElement('style');style.innerHTML='@keyframes fall{0%{transform:translateY(-10vh) rotate(0);opacity:1}100%{transform:translateY(110vh) rotate(360deg);opacity:0}}';document.head.appendChild(style);
+
+// تشغيل الأغنية لوحدها غصب عن المتصفح
+const audio = document.getElementById('song');
+audio.volume = 1.0;
+function playMusic() {
+  audio.play().catch(()=>{});
+}
+window.addEventListener('load', () => {
+  playMusic();
+  setTimeout(playMusic, 300);
+  setTimeout(playMusic, 1000);
+});
+// لو المتصفح منع، أول لمسة للشاشة هتشغلها فورا
+document.body.addEventListener('click', playMusic, {once:true});
+document.body.addEventListener('touchstart', playMusic, {once:true});
+document.addEventListener('scroll', playMusic, {once:true});
+</script>
+</body>
+</html>
