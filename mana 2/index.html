@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>منه ❤️ خليك معي</title>
+<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;600;800;900&display=swap" rel="stylesheet">
+<style>
+*{margin:0;padding:0;box-sizing:border-box;font-family:'Cairo',sans-serif}
+body{background:#0a0a0c;color:#fff;overflow-x:hidden}
+.hero{display:flex;min-height:100vh;align-items:center;max-width:1250px;margin:auto;padding:20px;gap:30px}
+.hero-img{flex:1;width:100%;height:80vh;border-radius:24px;overflow:hidden;background:#111}
+.hero-img img{width:100%;height:100%;object-fit:cover;object-position:top center}
+.hero-text{flex:1}
+.hero-text span{color:#ff2e63;font-size:12px;letter-spacing:3px;border:1px solid #ff2e6380;padding:6px 14px;border-radius:20px}
+.hero-text h1{font-size:85px;font-weight:900;line-height:1;margin-top:12px}
+.hero-text h2{font-size:32px;color:#ff2e63;font-weight:300;margin:8px 0 15px}
+.hero-text p{opacity:.6;margin-bottom:20px}
+.hero-text button{background:#fff;color:#000;border:none;width:100%;max-width:340px;padding:15px;border-radius:50px;font-weight:800;font-size:16px;cursor:pointer}
+.hero-text button.playing{background:#ff2e63;color:#fff}
+.hero-text small{display:block;margin-top:10px;opacity:.5;font-size:11px}
+.gallery{padding:50px 14px;background:#111113}
+.title{text-align:center;margin-bottom:28px}
+.title h2{font-size:28px;font-weight:800}
+.title p{opacity:.5;font-size:13px;margin-top:6px}
+.grid{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;max-width:1150px;margin:auto}
+.item{background:#1a1a1e;border-radius:18px;overflow:hidden;aspect-ratio:4/5;position:relative;border:1px solid rgba(255,255,255,.06)}
+.item img{width:100%;height:100%;object-fit:cover;object-position:center top}
+.cap{position:absolute;bottom:0;left:0;right:0;padding:12px;background:linear-gradient(transparent,#000);text-align:center}
+.cap h3{font-size:14px;color:#ff2e63}
+.cap p{font-size:11px;opacity:.7}
+.final{text-align:center;padding:70px 20px}
+.final h2{font-size:50px;font-weight:900}
+.heart{font-size:50px;animation:beat 1s infinite;margin-top:10px}
+@keyframes beat{0%,100%{transform:scale(1)}50%{transform:scale(1.25)}}
+footer{text-align:center;padding:20px;opacity:.25;font-size:10px;letter-spacing:2px}
+/* موبايل */
+@media(max-width:850px){
+.hero{flex-direction:column;padding:12px;gap:18px}
+.hero-img{height:60vh;order:1;border-radius:18px}
+.hero-text{order:2;text-align:center;width:100%}
+.hero-text h1{font-size:62px}
+.hero-text h2{font-size:24px}
+.grid{grid-template-columns:1fr 1fr}
+}
+@media(max-width:500px){
+.grid{grid-template-columns:1fr}
+.item{aspect-ratio:4/5.2}
+}
+</style>
+</head>
+<body>
+
+<section class="hero">
+    <div class="hero-img"><img src="photo/dd.jpeg" alt="Mennah"></div>
+    <div class="hero-text">
+        <span>FOR MY LOVE</span>
+        <h1>مِـنّـه</h1>
+        <h2>خليكِ معي للأبد</h2>
+        <p>انتي مش حب عمري .. انتي عمري كله</p>
+        <button id="playBtn">❤️ شغلي اغنيتنا يا منه</button>
+        <audio id="audio" src="sonng.mp3" loop></audio>
+        <small>الاغنية هتفضل تتعاد لوحدها للأبد</small>
+    </div>
+</section>
+
+<section class="gallery">
+    <div class="title">
+        <h2>كل لحظة معاكي ليها معنى</h2>
+        <p>6 صور .. 6 اسباب تخليني احبك كل يوم اكتر</p>
+    </div>
+    <div class="grid">
+        <div class="item"><img src="photo/dd%20(1).jpeg"><div class="cap"><h3>نظرة منك</h3><p>تنسيني الدنيا</p></div></div>
+        <div class="item"><img src="photo/dd%20(2).jpeg"><div class="cap"><h3>ضحكتك</h3><p>هي اماني</p></div></div>
+        <div class="item"><img src="photo/dd%20(3).jpeg"><div class="cap"><h3>جمالك</h3><p>ملوش وصف</p></div></div>
+        <div class="item"><img src="photo/dd%20(4).jpeg"><div class="cap"><h3>وجودك</h3><p>هو الامان</p></div></div>
+        <div class="item"><img src="photo/dd%20(5).jpeg"><div class="cap"><h3>قلبك</h3><p>اطيب قلب</p></div></div>
+        <div class="item"><img src="photo/dd%20(6).jpeg"><div class="cap"><h3>منه</h3><p>عمري كله</p></div></div>
+    </div>
+</section>
+
+<section class="final">
+    <h2>خليكِ معي يا منه</h2>
+    <div class="heart">❤️</div>
+</section>
+
+<footer>FOR MENNAH - 2026</footer>
+
+<script>
+const btn=document.getElementById('playBtn');
+const audio=document.getElementById('audio');
+audio.loop=true;
+btn.onclick=()=>{
+ if(audio.paused){audio.play();btn.innerText='⏸️ بحبك يا منه';btn.classList.add('playing')}
+ else{audio.pause();btn.innerText='❤️ شغلي اغنيتنا يا منه';btn.classList.remove('playing')}
+}
+</script>
+</body>
+</html>
