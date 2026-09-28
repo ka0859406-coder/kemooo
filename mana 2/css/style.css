@@ -1,0 +1,107 @@
+*{margin:0;padding:0;box-sizing:border-box;font-family:'Cairo',sans-serif}
+body{background:#0a0a0c;color:#fff;overflow-x:hidden}
+
+/* HERO NEW DESIGN */
+.hero-new{
+    display:flex;
+    min-height:100vh;
+    align-items:center;
+    gap:40px;
+    padding:40px;
+    max-width:1300px;
+    margin:auto;
+}
+.hero-img{
+    flex:1.2;
+    height:85vh;
+    border-radius:30px;
+    overflow:hidden;
+    position:relative;
+    box-shadow:0 30px 80px rgba(0,0,0,0.6);
+}
+.hero-img img{
+    width:100%;height:100%;
+    object-fit:cover;
+    object-position:center top;
+}
+.hero-text{
+    flex:1;
+    padding:20px;
+}
+.hero-text span{
+    color:#ff2e63;letter-spacing:4px;font-size:13px;font-weight:800;
+    border:1px solid rgba(255,46,99,0.3);padding:6px 14px;border-radius:20px;
+}
+.hero-text h1{
+    font-size:130px;font-weight:900;line-height:1;margin:15px 0 0;
+}
+.hero-text h2{
+    font-size:42px;font-weight:300;color:#ff2e63;margin-bottom:15px;
+}
+.hero-text p{opacity:.6;font-size:18px;margin-bottom:25px;font-weight:300}
+.hero-text button{
+    background:#fff;color:#000;border:none;
+    padding:16px 40px;border-radius:50px;
+    font-size:18px;font-weight:800;cursor:pointer;transition:.3s;
+}
+.hero-text button.playing{background:#ff2e63;color:#fff;animation:pulse 1.5s infinite}
+@keyframes pulse{0%{box-shadow:0 0 0 0 rgba(255,46,99,.7)}70%{box-shadow:0 0 0 20px rgba(255,46,99,0)}100%{box-shadow:0 0 0 0 rgba(255,46,99,0)}}
+.hero-text small{display:block;margin-top:12px;opacity:.4;font-size:12px}
+
+/* GALLERY NEW - حل مشكلة المقاسات نهائيا */
+.gallery-new{padding:80px 20px;background:#111113}
+.title{text-align:center;margin-bottom:45px}
+.title h2{font-size:42px;font-weight:800}
+.title p{opacity:.5;margin-top:8px}
+
+.grid-new{
+    max-width:1200px;margin:auto;
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:20px;
+}
+.item{
+    background:#1a1a1e;
+    border-radius:22px;
+    overflow:hidden;
+    position:relative;
+    /* ده اللي بيظبط المقاس */
+    aspect-ratio: 4/5.2;
+    border:1px solid rgba(255,255,255,0.05);
+}
+.item img{
+    width:100%;height:100%;
+    object-fit:cover;
+    object-position:center top;
+    transition:.8s;
+}
+.item:hover img{transform:scale(1.08);filter:brightness(.5)}
+.cap{
+    position:absolute;bottom:0;right:0;left:0;
+    padding:20px;
+    background:linear-gradient(transparent, rgba(0,0,0,0.9));
+    transform:translateY(10px);opacity:0;transition:.4s;
+}
+.item:hover .cap{transform:translateY(0);opacity:1}
+.cap h3{color:#ff2e63;font-size:18px}
+.cap p{font-size:13px;opacity:.7}
+
+/* FINAL */
+.final{text-align:center;padding:100px 20px}
+.final h2{font-size:70px;font-weight:900}
+.final p{font-size:22px;opacity:.6;margin:15px 0}
+.heart{font-size:60px;animation:beat 1s infinite}
+@keyframes beat{0%,100%{transform:scale(1)}50%{transform:scale(1.3)}}
+footer{text-align:center;padding:25px;opacity:.2;font-size:11px;letter-spacing:2px}
+
+/* RESPONSIVE */
+@media(max-width:1000px){
+    .hero-new{flex-direction:column;padding:15px}
+    .hero-img{width:100%;height:65vh;flex:none}
+    .hero-text h1{font-size:80px}
+    .grid-new{grid-template-columns:1fr 1fr}
+}
+@media(max-width:600px){
+    .grid-new{grid-template-columns:1fr}
+    .item{aspect-ratio:4/5}
+}
